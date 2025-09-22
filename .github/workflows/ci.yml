@@ -19,10 +19,27 @@ jobs:
         with:
           node-version: "20"
 
+      # Крок для перевірки, де package.json
+      - name: Find package.json
+        run: |
+          if [ -f ./package.json ]; then
+            echo "✅ package.json found in root"
+            echo "PACKAGE_DIR=." >> $GITHUB_ENV
+          elif [ -f ./blog-card/package.json ]; then
+            echo "✅ package.json found in ./blog-card"
+            echo "PACKAGE_DIR=./blog-card" >> $GITHUB_ENV
+          elif [ -f ./client/package.json ]; then
+            echo "✅ package.json found in ./client"
+            echo "PACKAGE_DIR=./client" >> $GITHUB_ENV
+          else
+            echo "❌ package.json not found!"
+            exit 1
+          fi
+
       - name: Install dependencies
         run: npm install
-        working-directory: ./blog-card   # <-- вкажи тут шлях до папки з package.json
+        working-directory: ${{ env.PACKAGE_DIR }}
 
       - name: Run build
         run: npm run build || echo "No build script found"
-        working-directory: ./blog-card   # <-- той самий шлях
+        working-directory: ${{ env.PACKAGE_DIR }}
