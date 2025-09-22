@@ -21,6 +21,8 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: ./blog-card   # <-- вкажи тут шлях до папки з package.json
 
       - name: Run build
         run: npm run build || echo "No build script found"
+        working-directory: ./blog-card   # <-- той самий шлях
