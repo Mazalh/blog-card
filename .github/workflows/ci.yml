@@ -11,27 +11,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Клонування репозиторію
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 2. Встановлення Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
 
+      # 3. Перевірка наявності package.json
       - name: Check for package.json
         run: |
-          if [ ! -f ./blog-card/package.json ]; then
-            echo "❌ package.json not found in ./blog-card!"
-            exit 1
+          if [ -f package.json ]; then
+            echo "✅ package.json found in root"
           else
-            echo "✅ package.json found."
+            echo "❌ package.json not found in root!"
+            exit 1
           fi
 
+      # 4. Встановлення залежностей
       - name: Install dependencies
         run: npm install
-        working-directory: ./blog-card  # <- вкажи тут шлях до package.json
 
+      # 5. Запуск build (не падає, якщо build відсутній)
       - name: Run build
         run: npm run build || echo "No build script found"
-        working-directory: ./blog-card
