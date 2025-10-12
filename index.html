@@ -1,29 +1,49 @@
 <!DOCTYPE html>
 <html lang="uk">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog Card</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="card">
-    <img src="images/blog-image.jpg" alt="Blog preview" class="card__image">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Preview Card</title>
 
-    <div class="card__content">
-      <span class="card__category">Категорія</span>
-      <small class="card__date">22 вересня 2025</small>
+    <!-- Шрифт -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;800&display=swap"
+      rel="stylesheet"
+    />
 
-      <h2 class="card__title">Приклад заголовка блогу</h2>
-      <p class="card__description">
-        Це короткий опис статті, який привертає увагу і мотивує прочитати далі.
-      </p>
+    <!-- Стилі -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="card">
+      <!-- Фото блогу -->
+      <img
+        src="./assets/blog-image.jpg"
+        alt="Blog Image"
+        class="card__image"
+      />
 
-      <div class="card__author">
-        <img src="images/avatar.png" alt="Author" class="card__author-img">
-        <span class="card__author-name">Єгор Татарчук</span>
+      <!-- Контент картки -->
+      <div class="card__content">
+        <span class="card__tag">HTML & CSS</span>
+        <p class="card__date">Published 12 Oct 2025</p>
+        <h2 class="card__title">Практична №3</h2>
+        <p class="card__text">
+          Метою цієї практичної роботи є налаштування середовища розробки
+          VS Code та створення картки блогу для вдосконалення базових навичок
+          роботи з HTML та CSS.
+        </p>
+
+        <!-- Автор -->
+        <div class="card__author">
+          <img
+            src="./assets/avatar-male.jpg"
+            alt="Author avatar"
+            class="card__avatar"
+          />
+          <p class="card__name">Теличко Назарій</p>
+        </div>
       </div>
-    </div>
-  </div>
-</body>
+    </main>
+  </body>
 </html>

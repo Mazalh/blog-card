@@ -1,6 +1,7 @@
+/* === Загальні стилі === */
 body {
-  font-family: Arial, sans-serif;
-  background: #f2f2f2;
+  font-family: "Figtree", sans-serif;
+  background-color: hsl(40, 98%, 82%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,66 +9,81 @@ body {
   margin: 0;
 }
 
+/* === Картка === */
 .card {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  overflow: hidden;
-  max-width: 350px;
-  display: flex;
-  flex-direction: column;
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(0, 0%, 7%);
+  border-radius: 20px;
+  box-shadow: 8px 8px 0 hsl(0, 0%, 7%);
+  max-width: 380px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Ефект при наведенні */
+.card:hover {
+  transform: translate(-6px, -6px);
+  box-shadow: 14px 14px 0 hsl(0, 0%, 7%);
+}
+
+/* === Зображення === */
 .card__image {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  border-radius: 15px;
 }
 
-.card__content {
-  display: grid;
-  gap: 10px;
-  padding: 16px;
-}
-
-.card__category {
-  font-size: 0.8rem;
-  font-weight: bold;
-  color: #4a90e2;
-  text-transform: uppercase;
+/* === Контент === */
+.card__tag {
+  background-color: hsl(40, 98%, 82%);
+  color: hsl(0, 0%, 7%);
+  font-weight: 800;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  display: inline-block;
+  margin-top: 15px;
 }
 
 .card__date {
-  font-size: 0.75rem;
-  color: #999;
+  color: hsl(0, 0%, 42%);
+  font-size: 14px;
+  margin: 10px 0;
 }
 
 .card__title {
-  font-size: 1.2rem;
-  margin: 0;
-  line-height: 1.4;
+  font-weight: 800;
+  font-size: 22px;
+  color: hsl(0, 0%, 7%);
+  margin: 10px 0;
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
 
-.card__description {
-  font-size: 0.9rem;
-  color: #333;
-  line-height: 1.4;
+/* Заголовок — ефект при наведенні */
+.card__title:hover {
+  color: hsl(40, 98%, 82%);
 }
 
+.card__text {
+  color: hsl(0, 0%, 42%);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* === Автор === */
 .card__author {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 12px;
+  margin-top: 15px;
 }
 
-.card__author-img {
-  width: 32px;
-  height: 32px;
+.card__avatar {
+  width: 40px;
   border-radius: 50%;
 }
 
-.card__author-name {
-  font-size: 0.9rem;
-  font-weight: 500;
+.card__name {
+  font-weight: 800;
+  font-size: 14px;
 }
